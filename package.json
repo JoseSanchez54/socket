@@ -1,0 +1,42 @@
+{
+    "name": "socket.io-server",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "concurrently \"webpack --watch --mode=development\" \"nodemon -q dist/index.js\"",
+        "build": "webpack --mode=production",
+        "start": "node dist/index.js",
+        "format": "npx prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/agusjkdev/hackathon-chat-feedback.git#main"
+    },
+    "keywords": [
+        "socket.io",
+        "server",
+        "realtime"
+    ],
+    "author": "Agustín Arnoldi",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/agusjkdev/hackathon-chat-feedback/issues"
+    },
+    "homepage": "https://github.com/agusjkdev/hackathon-chat-feedback/tree/main#readme",
+    "dependencies": {
+        "cross-fetch": "3.1.5",
+        "csvtojson": "2.0.10",
+        "dotenv": "16.0.3",
+        "socket.io": "4.5.4"
+    },
+    "devDependencies": {
+        "concurrently": "7.6.0",
+        "nodemon": "2.0.20",
+        "prettier": "2.8.3",
+        "ts-loader": "9.4.2",
+        "typescript": "4.9.5",
+        "webpack": "5.75.0",
+        "webpack-cli": "5.0.1",
+        "webpack-node-externals": "^3.0.0"
+    }
+}
