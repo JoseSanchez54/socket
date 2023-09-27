@@ -23,6 +23,7 @@ io.use((socket, next) => {
 });
 
 io.on("connection", socket => {
+    console.log("Conectado")
     socket.on(Event.CreatedProject, (createdProject: Project) => {
         Logger.event(Event.CreatedProject);
         socket.broadcast.emit(Event.CreatedProject, createdProject);
