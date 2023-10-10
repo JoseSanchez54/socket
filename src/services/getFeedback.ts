@@ -37,7 +37,7 @@ export default async function getFeedback(message: any): Promise<Feedback> {
             headers: {
                 "Content-Type": "application/json",
             },
-        }).then(res => res.json());
+        }).then(res => console.log(`Añadido ${res.json()}`));
         
         const request = await fetch("https://api.cohere.ai/classify", {
             method: "POST",
