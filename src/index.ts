@@ -39,7 +39,7 @@ io.on("connection", socket => {
         socket.broadcast.emit(Event.DeletedProject, deletedProject);
     });
 
-    socket.on(Event.ChatMessage, async (message: string) => {
+    socket.on(Event.ChatMessage, async (message: any) => {
         Logger.event(Event.ChatMessage);
 
         const feedback = await getFeedback(message);
