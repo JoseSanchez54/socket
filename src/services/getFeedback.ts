@@ -23,21 +23,27 @@ interface CohereAPIResponse {
         };
     }[];
 }
+interface Message {
+    message: string;
+    username: string;
+    canal: string;
+
+ }
 
 let examples;
 getExamples("v2.csv").then(data => {
     examples = data;
 });
 
-export default async function getFeedback(message: string): Promise<Feedback> {
+export default async function getFeedback(message: Message): Promise<Feedback> {
     try {
-        const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message}&pa=Gestion_2020`, {
+        const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message.message}&pa=Gestion_2020`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
         }).then(res => res.json());
-        console.log(req2)
+        
         const request = await fetch("https://api.cohere.ai/classify", {
             method: "POST",
             headers: {
