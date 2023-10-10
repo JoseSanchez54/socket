@@ -39,13 +39,14 @@ export default async function getFeedback(message: string): Promise<Feedback> {
             body: JSON.stringify({
                 message,
             }),
-        });
+        }).then(res => res.json());
+        console.log(req2)
         const request = await fetch("https://api.cohere.ai/classify", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                Authorization: `Bearerd ${process.env.COHERE_API_KEY}`,
+                /* Authorization: `Bearerd ${process.env.COHERE_API_KEY}` */
             },
             body: JSON.stringify({
                 model: "multilingual-22-12",
