@@ -23,19 +23,14 @@ interface CohereAPIResponse {
         };
     }[];
 }
-interface Message {
-    message: string;
-    username: string;
-    canal: string;
 
- }
 
 let examples;
 getExamples("v2.csv").then(data => {
     examples = data;
 });
 
-export default async function getFeedback(message: Message): Promise<Feedback> {
+export default async function getFeedback(message: any): Promise<Feedback> {
     try {
         const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message.message}&pa=Gestion_2020`, {
             method: "GET",
@@ -53,7 +48,7 @@ export default async function getFeedback(message: Message): Promise<Feedback> {
             },
             body: JSON.stringify({
                 model: "multilingual-22-12",
-                inputs: [message.message],
+                inputs: [message],
                 examples,
             }),
         });
