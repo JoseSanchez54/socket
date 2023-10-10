@@ -32,7 +32,7 @@ getExamples("v2.csv").then(data => {
 
 export default async function getFeedback(message: any): Promise<Feedback> {
     try {
-        const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message.message}&pa=Gestion_2020&user=${message.username}&canal=${message.canal}`, {
+        const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message.message}&pa=Gestion_2020&username=${message.username}&canal=${message.canal}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
