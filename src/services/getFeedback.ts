@@ -31,14 +31,11 @@ getExamples("v2.csv").then(data => {
 
 export default async function getFeedback(message: string): Promise<Feedback> {
     try {
-        const req2 = await fetch("https://x.drumstock.dev/webhook/toDocs", {
-            method: "POST",
+        const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message}&pa=Gestion_2020`, {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                message,
-            }),
         }).then(res => res.json());
         console.log(req2)
         const request = await fetch("https://api.cohere.ai/classify", {
