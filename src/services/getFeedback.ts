@@ -63,11 +63,11 @@ export default async function getFeedback(message: any): Promise<Feedback> {
         }
 
         const feedback = response.classifications[0].prediction;
-        Logger.log(`Got ${feedback} feedback from message: '${message}'`, true);
+       
         console.log("añadido")
         return feedback;
     } catch (e) {
-        Logger.log(`Couldn't get feedback from message: '${message}'. ${e}`, false);
+
 
         return Feedback.Unknown;
     }
