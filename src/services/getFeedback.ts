@@ -53,7 +53,7 @@ export default async function getFeedback(message: Message): Promise<Feedback> {
             },
             body: JSON.stringify({
                 model: "multilingual-22-12",
-                inputs: [message],
+                inputs: [message.message],
                 examples,
             }),
         });
