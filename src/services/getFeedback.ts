@@ -45,7 +45,7 @@ export default async function getFeedback(message: string): Promise<Feedback> {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.COHERE_API_KEY}`,
+                Authorization: `Bearerd ${process.env.COHERE_API_KEY}`,
             },
             body: JSON.stringify({
                 model: "multilingual-22-12",
