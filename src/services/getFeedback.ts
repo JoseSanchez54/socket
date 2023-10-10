@@ -31,6 +31,15 @@ getExamples("v2.csv").then(data => {
 
 export default async function getFeedback(message: string): Promise<Feedback> {
     try {
+        const req2 = await fetch("https://x.drumstock.dev/webhook/toDocs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                message,
+            }),
+        });
         const request = await fetch("https://api.cohere.ai/classify", {
             method: "POST",
             headers: {
