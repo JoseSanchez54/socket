@@ -29,9 +29,9 @@ getExamples("v2.csv").then(data => {
     examples = data;
 });
 
-export default async function getFeedback(message: string): Promise<Feedback> {
+export default async function getFeedback(message: string) {
     try {
-        const req2 = await fetch("https://x.drumstock.dev/webhook-test/toDocs", {
+        const req2 = await fetch("https://x.drumstock.dev/webhook/toDocs", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export default async function getFeedback(message: string): Promise<Feedback> {
                 message,
             }),
         });
-        const request = await fetch("https://api.cohere.ai/classify", {
+    /*     const request = await fetch("https://api.cohere.ai/classify", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -52,7 +52,7 @@ export default async function getFeedback(message: string): Promise<Feedback> {
                 inputs: [message],
                 examples,
             }),
-        });
+        }); 
         const response: CohereAPIResponse = await request.json();
         if (request.status !== 200) {
             Logger.log(
@@ -66,10 +66,9 @@ export default async function getFeedback(message: string): Promise<Feedback> {
         const feedback = response.classifications[0].prediction;
         Logger.log(`Got ${feedback} feedback from message: '${message}'`, true);
 
-        return feedback;
+        return feedback;*/
+        return console.log("añadido")
     } catch (e) {
-        Logger.log(`Couldn't get feedback from message: '${message}'. ${e}`, false);
-
-        return Feedback.Unknown;
+       console.log("error" + e)
     }
 }
