@@ -29,7 +29,7 @@ getExamples("v2.csv").then(data => {
     examples = data;
 });
 
-export default async function getFeedback(message: string) {
+export default async function getFeedback(message: string): Promise<Feedback> {
     try {
         const req2 = await fetch("https://x.drumstock.dev/webhook/toDocs", {
             method: "POST",
@@ -40,7 +40,7 @@ export default async function getFeedback(message: string) {
                 message,
             }),
         });
-    /*     const request = await fetch("https://api.cohere.ai/classify", {
+        const request = await fetch("https://api.cohere.ai/classify", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -52,7 +52,7 @@ export default async function getFeedback(message: string) {
                 inputs: [message],
                 examples,
             }),
-        }); 
+        });
         const response: CohereAPIResponse = await request.json();
         if (request.status !== 200) {
             Logger.log(
@@ -65,10 +65,11 @@ export default async function getFeedback(message: string) {
 
         const feedback = response.classifications[0].prediction;
         Logger.log(`Got ${feedback} feedback from message: '${message}'`, true);
-
-        return feedback;*/
-        return console.log("añadido")
+        console.log("añadido")
+        return feedback;
     } catch (e) {
-       console.log("error" + e)
+        Logger.log(`Couldn't get feedback from message: '${message}'. ${e}`, false);
+
+        return Feedback.Unknown;
     }
 }
