@@ -31,7 +31,7 @@ getExamples("v2.csv").then(data => {
 
 export default async function getFeedback(message: string): Promise<Feedback> {
     try {
-        const req2 = await fetch("https://x.drumstock.dev/webhook/toDocs", {
+        const req2 = await fetch("https://x.drumstock.dev/webhook-test/toDocs", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
