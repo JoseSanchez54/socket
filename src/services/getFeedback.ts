@@ -31,6 +31,7 @@ getExamples("v2.csv").then(data => {
 });
 
 export default async function getFeedback(message: any): Promise<Feedback> {
+    console.log(message)
     try {
         const req2 = await fetch(`https://classify-nu.vercel.app/classify?text=${message.message}&pa=Gestion_2020&username=${message.username}&canal=${message.canal}&subscriber=${message.subscriber}&mod=${message.mod}&roomId=${message.roomId}&firstMsg=${message.firstMsg}&turbo=${message.turbo}&userId=${message.userId}`, {
             method: "GET",
