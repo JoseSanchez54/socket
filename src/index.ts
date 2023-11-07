@@ -10,6 +10,7 @@ dotenv.config();
 
 const server = createServer();
 const io = new Server(server);
+console.log("Iniciado")
 
 io.use((socket, next) => {
     const origin = socket.request.headers.origin;
